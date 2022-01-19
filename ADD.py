@@ -1,7 +1,7 @@
 # Course: CS 30
 # Period: 3
 # File created 11/25/21
-# Last edited 01/05/22
+# Last edited 01/19/22
 # Name: Ethan Behl
 # Description: File that carries functions and beginning variables
 # Imports
@@ -85,10 +85,14 @@ Would you like to enter a phone number?
 """)
     if phone_in == "1":
         # Phone number information input
-        phone_area_in = input("What is the area code of their phone number?")
-        phone_3diget_in = input("What is the 3 diget set of their phone number?")
-        phone_4digit_in = input("What is the 4 digit set of their phone number?")
-        phone_number = ("(" + str(phone_area_in) + ") " + str(phone_3diget_in) + "-" + str(phone_4digit_in))
+        phone_area_in = input("What is the area code of" +
+        "their phone number?")
+        phone_3diget_in = input("What is the 3 diget" +
+        "set of their phone number?")
+        phone_4digit_in = input("What is the 4 digit" +
+        "set of their phone number?")
+        phone_number = ("(" + str(phone_area_in) + ") " +
+        str(phone_3diget_in) + "-" + str(phone_4digit_in))
         current_contact.append(phone_number)
     else:
         # Stand in when phone number not added
@@ -137,24 +141,9 @@ def INFO():
                 only_alpha += char
     except IndexError:
         None
-    while CONTACTS.contact >= 1: 
+    while CONTACTS.contact >= 1:
+        # Prints out contacts for display
         CHECK_CONTACT()
-        current_contact[0] = current_contact[0].replace("[", "")
-        current_contact[0] = current_contact[0].replace("]", "")
-        current_contact[0] = current_contact[0].replace("'", "")
-        current_contact[0] = current_contact[0].replace(",", "")
-        current_contact[1] = current_contact[1].replace("[", "")
-        current_contact[1] = current_contact[1].replace("]", "")
-        current_contact[1] = current_contact[1].replace("'", "")
-        current_contact[1] = current_contact[1].replace(",", "")
-        current_contact[2] = current_contact[2].replace("[", "")
-        current_contact[2] = current_contact[2].replace("]", "")
-        current_contact[2] = current_contact[2].replace("'", "")
-        current_contact[2] = current_contact[2].replace(",", "")
-        current_contact[3] = current_contact[3].replace("[", "")
-        current_contact[3] = current_contact[3].replace("]", "")
-        current_contact[3] = current_contact[3].replace("'", "")
-        current_contact[3] = current_contact[3].replace(",", "")
         print("\n" + current_contact[0])
         print(" > " + current_contact[1])
         print(" > " + current_contact[2])
@@ -208,14 +197,15 @@ def MODIFY_CONTACT():
         con_num += 1
         CONTACTS.contact -= 1
     mod_contact_in = input(" ")
-    try: CONTACTS.contact = int(mod_contact_in)
+    try: 
+        CONTACTS.contact = int(mod_contact_in)
     except ValueError:
         skip = 1
     if skip == 1:
         skip = 0
     elif con_num < int(mod_contact_in):
         None
-    else: 
+    else:
         CHECK_CONTACT()
         print(str(current_contact))
         # Mod menu
@@ -235,10 +225,14 @@ What information do you want to modify?
             current_contact[0] = full_name
         elif mod_info_in == "2":
             # Replace the current contact's phone number
-            phone_area_in = input("What is the area code of their phone number?")
-            phone_3diget_in = input("What is the 3 diget set of their phone number?")
-            phone_4digit_in = input("What is the 4 digit set of their phone number?")
-            phone_number = ("(" + str(phone_area_in) + ") " + str(phone_3diget_in) + "-" + str(phone_4digit_in))
+            phone_area_in = input("What is the area code of" +
+            "their phone number?")
+            phone_3diget_in = input("What is the 3 diget" +
+            "set of their phone number?")
+            phone_4digit_in = input("What is the 4 digit" +
+            "set of their phone number?")
+            phone_number = ("(" + str(phone_area_in) + ") " +
+            str(phone_3diget_in) + "-" + str(phone_4digit_in))
             current_contact[1] = phone_number
         elif mod_info_in == "3":
             # Replace the current contact's email
@@ -252,7 +246,7 @@ What information do you want to modify?
             # Delete the current contact, replaced with place holders
             current_contact.clear()
             current_contact.append("CONTACT DELETED")
-            current_contact.append(" ")
+            current_contact.append("Reload application to delete this.")
             current_contact.append(" ")
             current_contact.append(" ")
         CONTACTS.contact = con_num
@@ -261,10 +255,11 @@ What information do you want to modify?
 
 
 def RESET_CONTACTS():
-    """Resets all contacts""" 
+    """Resets all contacts"""
     global current_contact
     CONTACTS.contact -= 1
     while CONTACTS.contact >= 1:
         CHECK_CONTACT()
         current_contact.clear()
         CONTACTS.contact -= 1
+    CONTACTS.contact += 1

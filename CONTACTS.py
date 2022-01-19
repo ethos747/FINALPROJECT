@@ -1,7 +1,7 @@
 # Course: CS 30
 # Period: 3
 # File created 11/25/21
-# Last edited 01/05/22
+# Last edited 01/19/22
 # Name: Ethan Behl
 # Description: File that controls functons integral to the application
 # Imports
@@ -28,7 +28,7 @@ Would you like to do anything?
         ADD.MODIFY_CONTACT()
     elif mod_in == "2":
         ADD.RESET_CONTACTS()
-        f = open("SAVED_CONTACTS.txt","r+")
+        f = open("SAVED_CONTACTS.txt", "r+")
         f. truncate(0)
     else:
         None

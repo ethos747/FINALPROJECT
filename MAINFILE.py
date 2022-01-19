@@ -1,7 +1,7 @@
 # Course: CS 30
 # Period: 3
 # File created 11/25/21
-# Last edited 01/05/22
+# Last edited 01/19/22
 # Name: Ethan Behl
 # Description: Main file for the Contact Organizer
 # Imports
@@ -15,18 +15,20 @@ except ImportError:
 # Starting variables that determine a couple code functions
 example = True
 MAIN = False
+# Initiates the text files of the program for saved contacts
 file = open("SAVED_CONTACTS.txt", "r")
 list_of_lists = [(line.strip()).split() for line in file]
 file.close()
 print(list_of_lists)
 ADD.CHECK_CONTACT()
+# The following variables control the while loop for applying the saved contact
 y = 1
 x = 1
 while y <= 9:
     try:
         ADD.CHECK_CONTACT()
-        ADD.current_contact.append(str(list_of_lists[x])) 
-        x += 1 
+        ADD.current_contact.append(str(list_of_lists[x]))
+        x += 1
         ADD.current_contact.append(str(list_of_lists[x]))
         x += 1
         ADD.current_contact.append(str(list_of_lists[x]))
@@ -34,99 +36,26 @@ while y <= 9:
         ADD.current_contact.append(str(list_of_lists[x]))
         x += 1
         y += 1
+        ADD.current_contact[0] = ADD.current_contact[0].replace("[", "")
+        ADD.current_contact[0] = ADD.current_contact[0].replace("]", "")
+        ADD.current_contact[0] = ADD.current_contact[0].replace("'", "")
+        ADD.current_contact[0] = ADD.current_contact[0].replace(",", "")
+        ADD.current_contact[1] = ADD.current_contact[1].replace("[", "")
+        ADD.current_contact[1] = ADD.current_contact[1].replace("]", "")
+        ADD.current_contact[1] = ADD.current_contact[1].replace("'", "")
+        ADD.current_contact[1] = ADD.current_contact[1].replace(",", "")
+        ADD.current_contact[2] = ADD.current_contact[2].replace("[", "")
+        ADD.current_contact[2] = ADD.current_contact[2].replace("]", "")
+        ADD.current_contact[2] = ADD.current_contact[2].replace("'", "")
+        ADD.current_contact[2] = ADD.current_contact[2].replace(",", "")
+        ADD.current_contact[3] = ADD.current_contact[3].replace("[", "")
+        ADD.current_contact[3] = ADD.current_contact[3].replace("]", "")
+        ADD.current_contact[3] = ADD.current_contact[3].replace("'", "")
+        ADD.current_contact[3] = ADD.current_contact[3].replace(",", "")
         CONTACTS.contact += 1
     except IndexError:
         y = 10
         None
-"""try:
-    ADD.current_contact.append(str(list_of_lists[1]))  
-    ADD.current_contact.append(str(list_of_lists[2]))
-    ADD.current_contact.append(str(list_of_lists[3]))
-    ADD.current_contact.append(str(list_of_lists[4]))
-    CONTACTS.contact += 1
-    try:
-        ADD.CHECK_CONTACT()
-        ADD.current_contact.append(str(list_of_lists[5]))
-        ADD.current_contact.append(str(list_of_lists[6]))
-        ADD.current_contact.append(str(list_of_lists[7]))
-        ADD.current_contact.append(str(list_of_lists[8]))
-        CONTACTS.contact += 1
-        try:
-            ADD.CHECK_CONTACT()
-            ADD.current_contact.append(str(list_of_lists[9]))
-            ADD.current_contact.append(str(list_of_lists[10]))
-            ADD.current_contact.append(str(list_of_lists[11]))
-            ADD.current_contact.append(str(list_of_lists[12]))
-            CONTACTS.contact += 1
-            try:
-                ADD.CHECK_CONTACT()
-                ADD.current_contact.append(str(list_of_lists[13]))
-                ADD.current_contact.append(str(list_of_lists[14]))
-                ADD.current_contact.append(str(list_of_lists[15]))
-                ADD.current_contact.append(str(list_of_lists[16]))
-                CONTACTS.contact += 1
-                try:
-                    ADD.CHECK_CONTACT()
-                    ADD.current_contact.append(str(list_of_lists[17]))
-                    ADD.current_contact.append(str(list_of_lists[18]))
-                    ADD.current_contact.append(str(list_of_lists[19]))
-                    ADD.current_contact.append(str(list_of_lists[20]))
-                    CONTACTS.contact += 1
-                    try:
-                        ADD.CHECK_CONTACT()
-                        ADD.current_contact.append(str(list_of_lists[21]))
-                        ADD.current_contact.append(str(list_of_lists[22]))
-                        ADD.current_contact.append(str(list_of_lists[23]))
-                        ADD.current_contact.append(str(list_of_lists[24]))
-                        CONTACTS.contact += 1
-                        try:
-                            ADD.CHECK_CONTACT()
-                            ADD.current_contact.append(str(list_of_lists[25]))
-                            ADD.current_contact.append(str(list_of_lists[26]))
-                            ADD.current_contact.append(str(list_of_lists[27]))
-                            ADD.current_contact.append(str(list_of_lists[28]))
-                            CONTACTS.contact += 1
-                            try:
-                                ADD.CHECK_CONTACT()
-                                ADD.current_contact.append(str(list_of_lists[25]))
-                                ADD.current_contact.append(str(list_of_lists[26]))
-                                ADD.current_contact.append(str(list_of_lists[27]))
-                                ADD.current_contact.append(str(list_of_lists[28]))
-                                CONTACTS.contact += 1
-                                try:
-                                    ADD.CHECK_CONTACT()
-                                    ADD.current_contact.append(str(list_of_lists[25]))
-                                    ADD.current_contact.append(str(list_of_lists[26]))
-                                    ADD.current_contact.append(str(list_of_lists[27]))
-                                    ADD.current_contact.append(str(list_of_lists[28]))
-                                    CONTACTS.contact += 1
-                                    try:
-                                        ADD.CHECK_CONTACT()
-                                        ADD.current_contact.append(str(list_of_lists[25]))
-                                        ADD.current_contact.append(str(list_of_lists[26]))
-                                        ADD.current_contact.append(str(list_of_lists[27]))
-                                        ADD.current_contact.append(str(list_of_lists[28]))
-                                        CONTACTS.contact += 1
-                                    except IndexError:
-                                        None
-                                except IndexError:
-                                    None
-                            except IndexError:
-                                None
-                        except IndexError:
-                            None
-                    except IndexError:
-                        None
-                except IndexError:
-                    None
-            except IndexError:
-                None
-        except IndexError:
-            None
-    except IndexError:
-        None
-except IndexError:
-    None"""
 
 
 # Main menu loop
@@ -146,9 +75,7 @@ What would you like to do?
     user_in = input(" ")
     ADD.clear()
     if user_in == "1":
-        #if MAIN == False:
-            #print("You have no friends.")
-        #else:
+        # Opens and displays contacts for the user
         CONTACTS.open_contact()
     elif user_in == "2":
         # Starts adding a contact
@@ -162,14 +89,20 @@ What would you like to do?
             f = open("SAVED_CONTACTS.txt", "w")
             while CONTACTS.contact >= 1:
                 ADD.CHECK_CONTACT()
-                try:
-                    f.write("\n" + ADD.current_contact[0])
-                    f.write("\n" + ADD.current_contact[1])
-                    f.write("\n" + ADD.current_contact[2])
-                    f.write("\n" + ADD.current_contact[3])
-                    CONTACTS.contact -= 1 
-                except IndexError:
-                    None
+                if ADD.current_contact[0] == "CONTACT DELETED":
+                    ADD.current_contact.clear()
+                    CONTACTS.contact -= 1
+                    ADD.CHECK_CONTACT()
+                else:
+                    try:
+                        f.write("\n" + ADD.current_contact[0])
+                        f.write("\n" + ADD.current_contact[1])
+                        f.write("\n" + ADD.current_contact[2])
+                        f.write("\n" + ADD.current_contact[3])
+                    except IndexError:
+                        None
+                CONTACTS.contact -= 1
+        f = open("SAVED_CONTACTS.txt", "w")
         f.close()
         sys.exit()
     elif user_in == "4":
